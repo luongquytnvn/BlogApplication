@@ -84,4 +84,9 @@ public class BlogController {
         model.addAttribute("blog",result);
         return "blog/home";
     }
+    @GetMapping("/view-blog/{id}")
+    public String viewBlog(@PathVariable Integer id, Model model){
+        model.addAttribute("blog", blogService.findById(id));
+        return "blog/view";
+    }
 }

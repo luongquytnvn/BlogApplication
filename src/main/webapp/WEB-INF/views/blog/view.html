@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+</head>
+<body>
+<p>
+    <a href="/">Back to blog list</a>
+</p>
+<form th:object="${blog}">
+    <label>
+        <input th:type="hidden" name="id" th:field="*{id}">
+    </label>
+    <table>
+        <tr>
+            <td>Title</td>
+            <td th:text="${blog.title}"></td>
+        </tr>
+        <tr>
+        <td>Content</td>
+        <td th:text="${blog.content}"></td>
+        </tr>
+
+    </table>
+</form>
+
+</body>
+</html>

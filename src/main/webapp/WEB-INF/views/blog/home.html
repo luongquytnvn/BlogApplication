@@ -8,7 +8,9 @@
 <h1>Blog list</h1>
 <a href="/create-blog">Create new blog</a>
 <form action="/search-blog" method="post">
-    <input type="text" name="search" placeholder="blog title">
+    <label>
+        <input type="text" name="search" placeholder="blog title">
+    </label>
     <input type="submit" value="Search">
 </form>
 <table>
@@ -18,6 +20,9 @@
         <td>Content</td>
         <td>Imei</td>
         <td>Rate</td>
+        <td></td>
+        <td></td>
+        <td></td>
     </tr>
     <th:block th:each="blog  : ${blog}">
         <tr>
@@ -26,6 +31,7 @@
             <td th:text="${blog.getContent()}"></td>
             <td th:text="${blog.getImei()}"></td>
             <td th:text="${blog.getRate()}"></td>
+            <td><a th:href="@{/view-blog/__${blog.getId()}__}">View</a></td>
             <td><a th:href="@{/edit-blog/__${blog.getId()}__}">Edit</a></td>
             <td><a th:href="@{/delete-blog/__${blog.getId()}__}">Delete</a></td>
         </tr>
